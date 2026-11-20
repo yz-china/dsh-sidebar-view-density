@@ -1,7 +1,7 @@
 {
   "name": "dsh-sidebar-view-density",
-  "version": "0.2.0",
-  "description": "为 DSH 侧边栏、面板列与插件页分别提供查看方式切换：详细列表、单列、双列，以及可拖动调节列数、行高、上下与左右间距的自定义布局。",
+  "version": "1.0.0",
+  "description": "DSH 侧栏视图切换：详细列表 / 单列 / 双列 / 自定义列数与间距，带紧凑视图、会话行按钮显示方式（悬浮或延迟），提供独立设置页。",
   "license": "MIT",
   "author": "yz-china",
   "type": "module",
