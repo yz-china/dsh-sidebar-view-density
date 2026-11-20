@@ -76,6 +76,7 @@ pnpm add "file:./plugins/dsh-sidebar-view-density"
 面板 `.panelRow{min-height:32px;padding:5px}`。只把滑块接到 `min-height`（下限）时，
 行高会被内容自身撑住，所以低于 24px 毫无变化。
 
-custom 模式现在：轨道高度 **精确等于滑块值**（`height` + `max-height`，超出裁切），
-图标取 `min(18px, 行高-4px)`，字号取 `min(13px, 行高*0.72)`，面板则显式清掉
-`min-height` 与上下 `padding`。范围 12-96px、步长 1。
+custom 模式现在的做法：轨道高度 **精确等于滑块值**（同时给 `height` 与 `max-height`，
+超出裁切），图标取 `min(18px, 行高 - 4px)`，字号固定 13px、行距 1.1（不再按比例缩小，
+否则文字会缩到看不清），面板行则显式清掉 `min-height` 与上下 `padding`。
+范围 12-96px、步长 1；低于约 16px 时行内文字会被裁掉，属预期取舍。
