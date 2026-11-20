@@ -65,6 +65,21 @@ pnpm add "file:./plugins/dsh-sidebar-view-density"
 
 安装后必须**重新加载界面**：应用菜单 → 重新加载界面（F5 已由本插件在渲染进程绑定；原生层补丁需完全退出重开）。
 
+## 会话行的四个操作按钮（悬浮 / 延迟）
+
+宿主把星标、更多、归档、置顶这四个按钮写成 `display:none`，悬停时才变成
+`inline-flex` 的普通 flex item。一帧内出现又占走标题宽度，在双列的窄格子里就会让鼠标落到按钮上。
+
+设置 → **侧栏视图** → **会话操作按钮** 二选一，写入 `localStorage['dsh-sidebar-view-density:actions']`：
+
+| 选项 | 行为 |
+| --- | --- |
+| 悬浮在会话上方（默认） | 按钮 `position:absolute` 浮在行右侧，不参与布局，不挤标题宽度 |
+| 悬停 3 秒后显示 | 保持 `inline-flex`，但 `opacity/visibility` 延迟 3000ms 才出现，离开时立即隐藏 |
+
+两种方式都只在非「详细列表」档位下生效（选择器带 `html[data-dsh-view-density]` 前缀），
+也只作用于会话行（`[data-row-key^="session:"]`），不动工作区头和插件页的操作栏。
+
 ## 已知取舍
 
 - 双列/自定义模式下隐藏会话行的第三列（时间戳），否则标签被挤到看不见。
