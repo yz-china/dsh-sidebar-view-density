@@ -1,0 +1,6 @@
+# dsh-sidebar-view-density bundle patch
+#
+# 只有一行：把本插件插进 profile 的 bundle 栈。
+- insert:
+    - id: dsh-sidebar-view-density
+      name: 'dsh-sidebar-view-density'
